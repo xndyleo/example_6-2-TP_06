@@ -131,7 +131,9 @@ static void userInterfaceMatrixKeypadUpdate()
 
 static void userInterfaceDisplayInit()
 {
-    displayInit( DISPLAY_CONNECTION_GPIO_4BITS );
+ 
+ // Para cambiar entre 4 y 8 bits se usa la macro DISPLAY_CONNECTION_GPIO_4BITS yDISPLAY_CONNECTION_GPIO_8BITS respectivamente
+    displayInit( DISPLAY_CONNECTION_GPIO_4BITS);
      
     displayCharPositionWrite ( 0,0 );
     displayStringWrite( "Temperature:" );

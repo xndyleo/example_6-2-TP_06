@@ -71,7 +71,6 @@ DigitalOut displayEn( D9 );
 
 //=====[Declaration of external public global variables]=======================
 
-//=====[Declaration and initialization of public global variables]=============
 
 //=====[Declaration and initialization of private global variables]============
 
@@ -162,7 +161,10 @@ void displayInit( displayConnection_t connection )
 }
 
 void displayCharPositionWrite( uint8_t charPositionX, uint8_t charPositionY )
-{    
+{   
+
+// Detectamos el barrido que se hace en cada caracter
+//    printf("La posicion de x:%hhu\n\r; La posicion de y:%hhu\n\r",charPositionX,charPositionY); 
     switch( charPositionY ) {
         case 0:
             displayCodeWrite( DISPLAY_RS_INSTRUCTION, 
@@ -201,7 +203,9 @@ void displayCharPositionWrite( uint8_t charPositionX, uint8_t charPositionY )
 
 void displayStringWrite( const char * str )
 {
+    printf("%s ",str);
     while (*str) {
+        //printf("%c",*str);
         displayCodeWrite(DISPLAY_RS_DATA, *str++);
     }
 }
